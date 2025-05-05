@@ -1,0 +1,21 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY . /app
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install ultralytics shapely oracledb kafka-python 
+RUN pip install opencv-python-headless==4.10.0.82
+RUN pip uninstall -y torch torchvision torchaudio numpy
+RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+RUN pip install numpy==1.26.4
+
+ENV CONFIG_PATH /app/config.json
+
+CMD ["python", "detector_scalable.py"]
