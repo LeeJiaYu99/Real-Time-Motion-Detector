@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  cam18:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: registry_path/cam_series/cam18:latest
+    environment:
+      COMFIG_PATH: /app/config.json
+      CAM_ID: "18"
+
+  cam19:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: registry_path/cam_series/cam19:latest
+    environment: 
+      COMFIG_PATH: /app/config.json
+      CAM_ID: "19"
+  
+  cam20:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: registry_path/cam_series/cam20:latest
+    environment:
+      COMFIG_PATH: /app/config.json
+      CAM_ID: "20"
+
+  cam21:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: registry_path/cam_series/cam21:latest
+    environment:
+      COMFIG_PATH: /app/config.json
+      CAM_ID: "21"

@@ -1,0 +1,28 @@
+{
+    "kafka_server": "127.0.0.1:9092",
+    "kafka_topic": "frame_storage",
+
+    "cameras":
+    [
+        {
+            "camera_id": 18,
+            "video_path": "rtsp://username:password@ip/18",
+            "partition": 0
+        },
+        {
+            "camera_id": 19,
+            "video_path": "rtsp://username:password@ip/19",
+            "partition": 1
+        },
+        {
+            "camera_id": 20,
+            "video_path": "rtsp://username:password@ip/20",
+            "partition": 2
+        },
+        {
+            "camera_id": 21,
+            "video_path": "rtsp://username:password@ip/21",
+            "partition": 3
+        }
+    ]
+}

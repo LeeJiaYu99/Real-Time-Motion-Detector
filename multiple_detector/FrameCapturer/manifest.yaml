@@ -1,0 +1,130 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: framecapturer-cam18
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: framecapturer-cam18
+  template:
+    metadata:
+      labels:
+        app: framecapturer-cam18
+    spec:
+      containers:
+      - name: framecapturer-cam18
+        image: registry_path/cam_series/cam18:latest
+        ports:
+          - containerPort: 18
+        env:
+          - name: CONFIG_PATH
+            value: "/app/config.json"
+          - name: CAM_ID
+            value: "18"
+        resources:
+          requests:
+            memory: "600Mi"
+            cpu: "1"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: framecapturer-cam19
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: framecapturer-cam19
+  template:
+    metadata:
+      labels:
+        app: framecapturer-cam19
+    spec:
+      containers:
+      - name: framecapturer-cam19
+        image: registry_path/cam_series/cam19:latest
+        ports:
+          - containerPort: 19
+        env:
+          - name: CONFIG_PATH
+            value: "/app/config.json"
+          - name: CAM_ID
+            value: "19"
+        resources:
+          requests:
+            memory: "600Mi"
+            cpu: "1"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: framecapturer-cam20
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: framecapturer-cam20
+  template:
+    metadata:
+      labels:
+        app: framecapturer-cam20
+    spec:
+      containers:
+      - name: framecapturer-cam20
+        image: registry_path/cam_series/cam20:latest
+        ports:
+          - containerPort: 20
+        env:
+          - name: CONFIG_PATH
+            value: "/app/config.json"
+          - name: CAM_ID
+            value: "20"
+        resources:
+          requests:
+            memory: "600Mi"
+            cpu: "1"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: framecapturer-cam21
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: framecapturer-cam21
+  template:
+    metadata:
+      labels:
+        app: framecapturer-cam21
+    spec:
+      containers:
+      - name: framecapturer-cam21
+        image: registry_path/cam_series/cam21:latest
+        ports:
+          - containerPort: 21
+        env:
+          - name: CONFIG_PATH
+            value: "/app/config.json"
+          - name: CAM_ID
+            value: "21"
+        resources:
+          requests:
+            memory: "600Mi"
+            cpu: "1"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
