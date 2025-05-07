@@ -55,6 +55,44 @@ multiple_detector/
     |-- manifest.yaml
 </code></pre>
 
+### Deployment in Docker and Kubernetes
+1. <mark>cd to FrameCapturer directory</mark> to build images for FrameCapturer apps of respective cameras initiated in config.json.
+    <pre><code>
+        docker compose build
+    </code></pre>
+        
+    Optional: to push image to registry
+    <pre><code>
+        docker tag [image name] [registry image name]
+        docker push [registry image name]
+    </code></pre>
+
+2. Create containers for the FrameCapturer images in Kubernetes.
+    <pre><code>
+        kubectl apply -f manifest.yaml
+    </code></pre>
+
+3. <mark>cd to FrameMotionDetector directory</mark> to build images for a single FrameMotionDetector app.
+    <pre><code>
+        docker build -t framemotiondetector:latest .
+    </code></pre>
+        
+    Optional: to push image to registry
+    <pre><code>
+        docker tag framemotiondetector [registry image name]
+        docker push [registry image name]
+    </code></pre>
+
+4. Create containers for the FrameMotionDetector image in Kubernetes.
+    <pre><code>
+        kubectl apply -f manifest.yaml
+    </code></pre>
+
+5. Scale the replicas for FrameMotionDetector if needed.
+   <pre><code>
+       kubectl scale --replicas=[number of replicas] deployment/framemotiondetector-app
+    </code></pre>
+
 
 
 
